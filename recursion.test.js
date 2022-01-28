@@ -13,6 +13,23 @@ function division(number, dividedBy){
     return quotient;
     }
 }
+/* Write a function that implement Math.pow(x,n) but using recursion
+Example:
+pow(2,4) = 16
+*/
+
+
+function pow(x,n){
+    if(n===0){return 1}
+     else if (n%2 ===0){
+         return power(x,parseInt(n/2))*power(x,parseInt(n/2))
+     }else{
+          return x*power(x,parseInt(n/2))*power(x,parseInt(n/2))
+     }
+
+    // Write you logic here.
+    
+}
 
 /* The Fibonacci Series is a numeric series starting with the integers 0 and 1. In this series,
 the next integer is determined by summing the previous two. This gives us:
@@ -72,7 +89,7 @@ describe("Test fibonacci", () => {
         expect(fibonacci(1)).toStrictEqual(1);
         expect(fibonacci(2)).toStrictEqual(1);
         expect(fibonacci(3)).toStrictEqual(2);
-        expect(fibonacci(4)).toStrictEqual(3);
+        expect(fibonacci(7)).toStrictEqual(13);
     })
 });
 
