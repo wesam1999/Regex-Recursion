@@ -6,16 +6,17 @@
 characters (no numbers and symbols) and it should end with capital A else return false */
 
 function capitalA(s){
+   
     let regex2 = /[a-zA-Z]+/g;
     let regex1=/[^a-z]+/g;
     let regex3= /(A)$/g;
     if(regex2.test(s)&&regex3.test(s)){
     
-    return "true" ;
+    return true ;
       
 }
   else if(regex1.test(s)){
-    return "false";
+    return false;
   }
   
 }
@@ -27,10 +28,10 @@ which end with io (example@example.io) */
 function ioEmail(email){
     let regex1 = /example@example.io/gi;
     if(regex1.test(email)){
-        return "true";
+        return true;
     }
     else{
-        return "false";
+        return false;
     }
     // Add your logic.
     
@@ -48,8 +49,10 @@ function imagesSearcher(text){
         let reg= /(jpg)$/gi;
         let reg1= /(jpeg)$/gi;
         let reg2= /(png)$/gi; 
-        if(reg.test(str)||reg1.test(str)||reg2.test(str)){
-           arr.push(str);
+        if(reg.test(str)&&reg1.test(str)&&reg2.test(str)){
+           arr.push(arr.match(reg));
+           arr.push(reg1);
+           arr.push(reg2);
          }
       }
       console.log(arr);    // Add your logic.
