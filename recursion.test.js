@@ -1,17 +1,43 @@
 /* Write a function to do the division operation without using the built-in division*/
 
 function division(number, dividedBy){
-    let sign = ((number < 0) ^ (dividedBy < 0)) ? -1 : 1;
-    number = Math.abs(number);
-    dividedBy = Math.abs(dividedBy);
-    let quotient = 0;
-    while (number >= divisor) {
-        number -= divisor;
-        ++quotient;
-    }
-    if(sign==-1){ quotient=-quotient;
-    return quotient;
-    }
+    if (number === 0)
+    return 0;
+if (dividedBy === 0)
+    return 0;
+let negResult = false;
+
+// Handling negative numbers
+if (number < 0)
+{
+    number = -number;
+    if (dividedBy < 0)
+    dividedBy = -dividedBy;
+    else
+        negResult = true;
+}
+else if (dividedBy < 0)
+{
+    dividedBy = -dividedBy;
+    negResult = true;
+}
+
+// if num1 is greater than equal to num2
+// subtract num2 from num1 and increase
+// quotient by one.
+let quotient = 0;
+while (number >= dividedBy)
+{
+    number = number - dividedBy;
+    quotient++;
+}
+
+// checking if neg equals to 1 then making
+// quotient negative
+if (negResult)
+    quotient = -quotient;
+return parseInt(quotient);
+    
 }
 /* Write a function that implement Math.pow(x,n) but using recursion
 Example:
@@ -21,13 +47,11 @@ pow(2,4) = 16
 
 function pow(x,n){
     if(n===0){return 1}
-     else if (n%2 ===0){
-         return power(x,parseInt(n/2))*power(x,parseInt(n/2))
-     }else{
-          return x*power(x,parseInt(n/2))*power(x,parseInt(n/2))
-     }
-
-    // Write you logic here.
+    else if (n%2 ===0){
+        return pow(x,parseInt(n/2))*pow(x,parseInt(n/2))
+    }else{
+         return x*pow(x,parseInt(n/2))*pow(x,parseInt(n/2))
+    }
     
 }
 
@@ -39,8 +63,8 @@ Example: n = 4 ==> 3, n= 0 ==> 0, n = 3 ==> 2 */
 
 function fibonacci(n){
     if (n <= 1)
-        return n;
-    return fibonacci(n-1) + fib(n-2);
+    return n;
+return fibonacci(n-1) + fibonacci(n-2);
     // Write you logic here.
     
 }
